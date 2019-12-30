@@ -1,5 +1,10 @@
 # Introduction to algorithms lab
 
+This tutorial was written by [Katherine Walden](https://github.com/kwaldenphd). 
+
+<a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
+This tutorial is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+
 This lab builds on previous work with sorting and searching algorithms. In this lab, we will explore how an algorithm script built in Python can automate the process of stripping HTML tags from downloaded web content. 
 
 Instead of executing Python code in blocks or sections, we will write an entire `.py` file that we can execute to automate all the functions or steps outlined in the file. More on this later.
