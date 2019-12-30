@@ -51,11 +51,11 @@ Add the following lines to the blank file. Replace the Wikisource URL with a lin
 ```Python
 # open-webpage.py
 
-import urllib.request, urllib.error, urllib.parse
+import urllib
 
 url = 'https://en.wikisource.org/wiki/John_F._Kennedy%27s_Third_State_of_the_Union_Address'
 
-response = urllib.request.urlopen(url)
+response = urllib.urlopen(url)
 webContent = response.read()
 
 print(webContent[0:300])
@@ -74,7 +74,7 @@ A few things happen with this code:
 - `response` saves the result of the URL we opened using `urlopen`
 - `read` copies the contents of `response` into the `webContent` variable
 
-<blockquote>Consult the Python documentation to learn more about the urllib2 library: https://docs.python.org/2/library/urllib2.html</blockquote>
+<blockquote>Consult the Python documentation to learn more about the urllib library: https://docs.python.org/3/library/urllib.html</blockquote>
 
 This block of code includes 3 variables, 1 module, 2 methods, and 1 parameter.
 
@@ -92,11 +92,11 @@ Use Geany's Save As function to save the `open-webpage.py` program as `save-webp
 ```Python
 # save-webpage.py
 
-import urllib.request, urllib.error, urllib.parse
+import urllib
 
 url = 'https://en.wikisource.org/wiki/John_F._Kennedy%27s_Third_State_of_the_Union_Address'
 
-response = urllib.request.urlopen(url)
+response = urllib.urlopen(url)
 webContent = response.read()
 
 f = open('Kennedy_Third_SOTU.html', 'w')
@@ -228,11 +228,11 @@ At this point, we have `save-webpage.py` and `stripTags.py`.
 ```Python
 # save-webpage.py
 
-import urllib.request, urllib.error, urllib.parse
+import urllib
 
 url = 'https://en.wikisource.org/wiki/John_F._Kennedy%27s_Third_State_of_the_Union_Address'
 
-response = urllib.request.urlopen(url)
+response = urllib.urlopen(url)
 webContent = response.read()
 
 f = open('Kennedy_Third_SOTU.html', 'w')
@@ -283,11 +283,11 @@ We can think of the entire `stripTags` routine as its own program.
 Our updated `save-webpage` program that calls `stripTags` as a module might look like this:
 ```Python
 #HTML-to-text.py
-import urllib.request, urllib.error, urllib.parse, stripTags
+import urllib, stripTags
 
 url = 'https://en.wikisource.org/wiki/John_F._Kennedy%27s_Third_State_of_the_Union_Address'
 
-response = urllib.request.urlopen(url)
+response = urllib.urlopen(url)
 HTML = response.read()
 
 print((stripTags.stripTags(HTML)))
@@ -338,11 +338,11 @@ We need to convert the string output from `stripTags` into list of words.
 A sample program for that conversion:
 ```Python
 #html-to-list1.py
-import urllib.request, urllib.error, urllib.parse, stripTags
+import urllib, stripTags
 
 url = 'https://en.wikisource.org/wiki/John_F._Kennedy%27s_Third_State_of_the_Union_Address'
 
-response = urllib.request.urlopen(url)
+response = urllib.urlopen(url)
 html = response.read()
 text = stripTags.stripTags(html)
 wordlist = text.split()
