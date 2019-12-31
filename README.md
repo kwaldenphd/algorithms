@@ -23,6 +23,26 @@ This lab is based on and uses content from the following Programming Historian t
 - William J. Turkel and Adam Crymble, "From HTML to List of Words (part 2)," The Programming Historian 1 (2012), https://programminghistorian.org/en/lessons/from-html-to-list-of-words-2.
 - William J. Turkel and Adam Crymble, "Code Reuse and Modularity in Python," The Programming Historian 1 (2012), https://programminghistorian.org/en/lessons/code-reuse-and-modularity.
 
+#  Table of Contents
+- [Using Python to Download Web Pages](#using-python-to-download-web-pages)
+  * [What is a URL](#what-is-a-url)
+  * [Using Python to Open URLs](#using-python-to-open-urls)
+  * [Saving a Web Page](#saving-a-web-page)
+- [Devising an Algorithm](#devising-an-algorithm)
+  * [Explore the HTML & Identify Patterns](#explore-the-html--identify-patterns)
+  * [Outline the Algorithm](#outline-the-algorithm)
+- [Building the Algorithm in Python](#building-the-algorithm-in-python)
+  * [Review of Looping and Branching](#review-of-looping-and-branching)
+  * [Building the `stripTags` routine](#building-the-striptags-routine)
+  * [`continue` and `return`](#continue-and-return)
+- [Putting it all together](#putting-it-all-together)
+- [Next steps](#next-steps)
+  * [Writing to a Text File](#writing-to-a-text-file)
+  * [Creating a list of words](#creating-a-list-of-words)
+- [Why did we do this?](#why-did-we-do-this)
+- [Oh the Places You Could Go](#oh-the-places-you-could-go).
+- [Lab Notebook Questions](#lab-notebook-questions)
+
 # Using Python to Download Web Pages
 
 ## What is a URL
