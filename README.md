@@ -40,7 +40,7 @@ This lab is based on and uses content from the following Programming Historian t
   * [Writing to a Text File](#writing-to-a-text-file)
   * [Creating a list of words](#creating-a-list-of-words)
 - [Why did we do this?](#why-did-we-do-this)
-- [Oh the Places You Could Go](#oh-the-places-you-could-go).
+- [Oh the Places You Could Go](#oh-the-places-you-could-go)
 - [Lab Notebook Questions](#lab-notebook-questions)
 
 # Using Python to Download Web Pages
@@ -149,20 +149,20 @@ f.close
 20. For example, when looking at the HTML for President Kennedy's third inaugural address, I notice that `<div></div>` tags are used for metadata or menu items, and `<p></p>` tags surround the content text. I also notice that `<div></div>` tags are used for content that comes before and after the content text.
 
 21. I might want to build an algorithm that works through the following steps:
-  a. downloads the web page as an `.HTML` file
-  b. searches the HTML for the first `<p>` tag
-  c. stores the location of the first `<p>` tag
-  d. searches the HTML for the last `</p>` tag
-  e. saves the location of the last `</p>` tag
-  f. saves everything after the first `<p>` tag and before the last `</p>` tag to a string
+  * downloads the web page as an `.HTML` file
+  * searches the HTML for the first `<p>` tag
+  * stores the location of the first `<p>` tag
+  * searches the HTML for the last `</p>` tag
+  * saves the location of the last `</p>` tag
+  * saves everything after the first `<p>` tag and before the last `</p>` tag to a string
 
 22. Now I also need to instruct Python how to handle the `<p></p>` tags located within the content text. 
 
 23. Once the algorithm has isolated the content text, the following steps will remove the remaining markup:
-  g. look at every character in the string
-  h. ignore characters that follow a left angle bracket `<`
-  i. look at and save characters that follow a right angle bracket `>`
-  j. append the characters not in a tag to a new variable
+  * look at every character in the string
+  * ignore characters that follow a left angle bracket `<`
+  * look at and save characters that follow a right angle bracket `>`
+  * append the characters not in a tag to a new variable
 
 <blockquote>Q9: Do you want or need to revise the steps for your algorithm? How and why?</blockquote>
 
@@ -235,7 +235,7 @@ def stripTags(pageContents):
 
 35. However, in this case we want one part of a program to send information to another part. When a function finishes executing, it can `return` a value to the code which called it. 
 
-<blockquote>Q11: Explain what the <code>stripTags</code> routine is doing in your own words. What alternatives to the <code>for-if</code> and <code>elif</code> statements could we use to remove the remaining <code><p></p></code> tags?</blockquote>
+<blockquote>Q11: Explain what the <code>stripTags</code> routine is doing in your own words. What alternatives to the <code>for-if</code> and <code>elif</code> statements could we use to remove the remaining paragraph tags?</blockquote>
 
 ## Putting it all together (so far)
 
