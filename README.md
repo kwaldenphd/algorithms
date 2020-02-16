@@ -35,7 +35,7 @@ This lab is based on and uses content from the following Programming Historian t
   * [Review of Looping and Branching](#review-of-looping-and-branching)
   * [Building the `stripTags` routine](#building-the-striptags-routine)
   * [`continue` and `return`](#continue-and-return)
-- [Putting it all together](#putting-it-all-together)
+- [Putting it all together](#putting-it-all-together-so-far)
 - [Next steps](#next-steps)
   * [Writing to a Text File](#writing-to-a-text-file)
   * [Creating a list of words](#creating-a-list-of-words)
@@ -82,15 +82,15 @@ print(webContent[0:300])
 <blockquote>Q3: Based on our previous work with Python, what do you think is happening in these lines of code?</blockquote>
  
 8. A few things happen with this code:
-  a. it opens the speech URL
-  b. it reads the contents of the URL into the `webContent` string
-  c. it prints the first 300 characters of the string
+  * it opens the speech URL
+  * it reads the contents of the URL into the `webContent` string
+  * it prints the first 300 characters of the string
 
 9. `url`, `response`, and `pageContents` are all variables named in this code.
-  a. `url` holds the URL of the web page we are going to download
-  b. `urlopen` is a function from Python's `urllib2.py` module
-  c. `response` saves the result of the URL we opened using `urlopen`
-  d. `read` copies the contents of `response` into the `webContent` variable
+  * `url` holds the URL of the web page we are going to download
+  * `urlopen` is a function from Python's `urllib2.py` module
+  * `response` saves the result of the URL we opened using `urlopen`
+  * `read` copies the contents of `response` into the `webContent` variable
 
 <blockquote>Consult the Python documentation to learn more about the urllib library: https://docs.python.org/3/library/urllib.html</blockquote>
 
@@ -309,10 +309,10 @@ print((stripTags.stripTags(HTML)))
 ```
 
 46. Running `HTML-to-text.py` goes through the following steps:
-  a. gets the web page for the Wikisource URL
-  b. looks in the `stripTags.py` module for the `stripTags` function
-  c. uses that function to remove the `<div></div>` tag content AS WELL AS the `<p></p>` tags that remain in the content text
-  d. prints the output of the `stripTags` function
+  * gets the web page for the Wikisource URL
+  * looks in the `stripTags.py` module for the `stripTags` function
+  * uses that function to remove the `<div></div>` tag content AS WELL AS the `<p></p>` tags that remain in the content text
+  * prints the output of the `stripTags` function
 
 47. To recap:
 
