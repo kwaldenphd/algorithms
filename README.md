@@ -13,7 +13,7 @@ Instead of executing Python code in blocks or sections, we will write an entire 
 - Explain how to use Python to download and save the contents of a web page to your local hard drive
 - Learn how to remove the HTML markup from a webpage
 - Introduce looping and branching to repeat tasks and test for certain conditions
-- Convert a long string to a list of words that canbe sorted, indexed, and counted
+- Convert a long string to a list of words that can be sorted, indexed, and counted
 
 ## Acknowledgements
 
