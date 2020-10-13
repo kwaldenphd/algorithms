@@ -63,17 +63,18 @@ This lab is based on and uses content from the following Programming Historian t
 
 5. Now let’s try opening the page using Python. 
 
-6. Open a new Python file in Geany and save it as `open-webpage.py`.
+6. Start a new Python `.py` file in Replit and name it `open-webpage.py`.
 
 7. Add the following lines to the blank file. Replace the Wikisource URL with a link to a speech of your choosing:
 ```Python
 # open-webpage.py
 
 import urllib
+import urllib.request
 
 url = 'https://en.wikisource.org/wiki/John_F._Kennedy%27s_Third_State_of_the_Union_Address'
 
-response = urllib.urlopen(url)
+response = urllib.request.urlopen(url)
 webContent = response.read()
 
 print(webContent[0:300])
@@ -106,25 +107,26 @@ print(webContent[0:300])
 
 13. We want to modify the `open-webpage.py` program to save a copy of the `webContent` variable to an HTML file on our computer.
 
-14. Use Geany's Save As function to save the `open-webpage.py` program as `save-webpage.py`. Replace the URL and HTML file name with your own content.
+14. Create a new Python `.py` file named `save-webpage.py`. Modify the code below, replacing the URL and HTML file name with your own content.
 ```Python
 # save-webpage.py
 
 import urllib
+import urllib.request
 
 url = 'https://en.wikisource.org/wiki/John_F._Kennedy%27s_Third_State_of_the_Union_Address'
 
-response = urllib.urlopen(url)
+response = urllib.request.urlopen(url)
 webContent = response.read()
 
-f = open('Kennedy_Third_SOTU.html', 'w')
+f = open('Kennedy_Third_SOTU.html', 'wb')
 f.write(webContent)
 f.close
 ```
 
 <blockquote>Q5: What do you think is happening in the last three lines of our new program? Consult (and cite) additional Python documentation as needed. What do you think will be the output of this program?</blockquote>
 
-15. Execute the program and open the saved `.HTML` file in a text editor.
+15. Execute the program and open the newly-created `.HTML` file in Replit or another text editor/IDE.
 
 # Devising an algorithm
 
@@ -295,14 +297,14 @@ def stripTags(pageContents):
 
 44. We can think of the entire `stripTags` routine as its own program. 
 
-45. Our updated `save-webpage` program that calls `stripTags` as a module might look like this:
+45. Start a new `HTML-to-text.py` file in Replit that modifies the `save-webpage` program. Our updated `save-webpage` program that calls `stripTags` as a module might look like this:
 ```Python
 #HTML-to-text.py
-import urllib, stripTags
+import urllib, urllib.request, stripTags
 
 url = 'https://en.wikisource.org/wiki/John_F._Kennedy%27s_Third_State_of_the_Union_Address'
 
-response = urllib.urlopen(url)
+response = urllib.request.urlopen(url)
 HTML = response.read()
 
 print((stripTags.stripTags(HTML)))
