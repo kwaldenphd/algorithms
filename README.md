@@ -1,9 +1,9 @@
-# Introduction to algorithms lab
+# Introduction to Natural Language Processing in Python
 
 <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
 This tutorial is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
-This lab builds on previous work with sorting and searching algorithms. In this lab, we will explore how an algorithm script built in Python can automate the process of stripping HTML tags from downloaded web content. 
+In this lab, we will build on previous work in Python to explore how an algorithm script built in Python can automate the process of stripping HTML tags from downloaded web content. 
 
 Instead of executing Python code in blocks or sections, we will write an entire `.py` file that we can execute to automate all the functions or steps outlined in the file. More on this later.
 
@@ -67,7 +67,10 @@ This lab is based on and uses content from the following Programming Historian t
 
 <blockquote>NOTE: You will need to have three panels going on in your Replit (or other IDE) as you move through this lab. We will be writing programs in multiple files, so in Replit, you'll need to be able to run programs using the terminal/command prompt. <a href="https://repl.it/talk/ask/How-to-open-terminal-in-Python/28045">More information on how to add a terminal window to your Replit environment.</a></blockquote>
 
-7. Add the following lines to the blank file. Replace the Wikisource URL with a link to a speech of your choosing:
+7. Add the following lines to the blank file. 
+
+<blockquote>The lab procedure walks through this process for a specific Wikisource example. You are welcome (but not required) to challenge yourself by working through the lab using a different Wikisource URL (or other URL for a page that includes text content).</blockquote>
+
 ```Python
 # open-webpage.py
 
@@ -369,7 +372,7 @@ print((wordlist[0:120]))
 ```
 <blockquote>Q14: Explain what is happening in <code>html-to-list.py</code> in your own words.</blockquote>
 
-<blockquote>Q15: What is the output when you execute <code>html-to-list1.py</code>?</blockquote>
+<blockquote>Q15: What is the output when you execute <code>html-to-list.py</code>?</blockquote>
 
 # Why did we do this?
 
