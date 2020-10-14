@@ -65,6 +65,8 @@ This lab is based on and uses content from the following Programming Historian t
 
 6. Start a new Python `.py` file in Replit and name it `open-webpage.py`.
 
+<blockquote>NOTE: You will need to have three panels going on in your Replit (or other IDE) as you move through this lab. We will be writing programs in multiple files, so in Replit, you'll need to be able to run programs using the terminal/command prompt. <a href="https://repl.it/talk/ask/How-to-open-terminal-in-Python/28045">More information on how to add a terminal window to your Replit environment.</a></blockquote>
+
 7. Add the following lines to the blank file. Replace the Wikisource URL with a link to a speech of your choosing:
 ```Python
 # open-webpage.py
@@ -89,7 +91,7 @@ print(webContent[0:300])
 
 9. `url`, `response`, and `pageContents` are all variables named in this code.
   * `url` holds the URL of the web page we are going to download
-  * `urlopen` is a function from Python's `urllib2.py` module
+  * `urlopen` is a function from Python's `urllib` module
   * `response` saves the result of the URL we opened using `urlopen`
   * `read` copies the contents of `response` into the `webContent` variable
 
@@ -154,9 +156,9 @@ f.close
   * downloads the web page as an `.HTML` file
   * searches the HTML for the first `<p>` tag
   * stores the location of the first `<p>` tag
-  * searches the HTML for the last `</p>` tag
-  * saves the location of the last `</p>` tag
-  * saves everything after the first `<p>` tag and before the last `</p>` tag to a string
+  * searches the HTML for the first `<div>` tag after the speech text content
+  * saves the location of that first post-speech `<div>` tag
+  * saves everything after the first `<p>` tag and before the first post-speech `<div>` tag to a string
 
 22. Now I also need to instruct Python how to handle the `<p></p>` tags located within the content text. 
 
@@ -187,26 +189,25 @@ f.close
 ```Python
 # stripTags.py
 def stripTags(pageContents):
-    startLoc = pageContents.find("<p>")
-    endLoc = pageContents.rfind("</p>")
+    startLoc = pageContents.find('<p>')
+    endLoc = pageContents.rfind('<div class="licenseContainer licenseBanner ws-noexport')
 
     pageContents = pageContents[startLoc:endLoc]
     return pageContents
 ```
-
 28. The `stripTags` routine uses Python `find` and `rfind` to look for the first instance of the `<p>` tag and the last instance of the `</p>` tag.
 
 <blockquote>Q10: Search available Python documentation to describe what <code>find</code> and <code>rfind</code> are doing in this program. Be sure to cite relevant sources consulted.</blockquote>
 
 29. Now we have a routine that will remove the `<div></div>` tags markup before and after our content text.
 
-30. We still need to instruct Python how to handle the `<p></p>` tags that remain in `pageContents`.
+30. We still need to instruct Python how to handle the `<p></p>` tags that remain in `pageContents`. We can do this by modifying our `stripTags' routine.
 
 ```Python
 # stripTags.py
 def stripTags(pageContents):
-    startLoc = pageContents.find("<p>")
-    endLoc = pageContents.rfind("</p>")
+    startLoc = pageContents.find('<p>')
+    endLoc = pageContents.rfind('<div class="licenseContainer licenseBanner ws-noexport')
 
     pageContents = pageContents[startLoc:endLoc]
 
@@ -253,7 +254,7 @@ url = 'https://en.wikisource.org/wiki/John_F._Kennedy%27s_Third_State_of_the_Uni
 response = urllib.urlopen(url)
 webContent = response.read()
 
-f = open('Kennedy_Third_SOTU.html', 'w')
+f = open('Kennedy_Third_SOTU.html', 'wb')
 f.write(webContent)
 f.close
 ```
@@ -261,8 +262,8 @@ f.close
 ```Python
 # stripTags.py
 def stripTags(pageContents):
-    startLoc = pageContents.find("<p>")
-    endLoc = pageContents.rfind("</p>")
+    startLoc = pageContents.find('<p>')
+    endLoc = pageContents.rfind('<div class="licenseContainer licenseBanner ws-noexport')
 
     pageContents = pageContents[startLoc:endLoc]
 
@@ -283,9 +284,9 @@ def stripTags(pageContents):
 ```
 37. We need to think about how best to bring those two programs together, using the concepts of code reuse and modularity.
 
-38. Our `save-webpage.py` file includes a program that downloads and saves a web page as an `HTML` file. 
+38. Our `save-webpage.py` file includes a program that downloads and saves a web page as an `.html` file. 
 
-39. To run `stripTags.py`, we would need to reopen or reload that `HTML` file in Python as a string in order to execute the `stripTags` routine.
+39. To run `stripTags.py`, we would need to reopen or reload that `.html` file in Python as a string in order to execute the `stripTags` routine.
 
 40. What if we wanted to combine those two steps to be part of the same algorithm? This is where code reuse and modularity come in.
 
@@ -293,24 +294,24 @@ def stripTags(pageContents):
 
 42. Breaking a program into modules hides the details for how something is done within the module that does it. Other modules don’t need to know how something is accomplished if they are not responsible for doing it. This need-to-know principle is called “encapsulation."
 
-43. We are going to save the `stripTags` routine in its own file, as a module we can import into another program. In this case, we will import `stripTags` into a new `HTML-to-text` program.
+43. We are going to save the `stripTags` routine in its own file, as a module we can import into another program. In this case, we will import `stripTags` into a new `html-to-text` program.
 
 44. We can think of the entire `stripTags` routine as its own program. 
 
-45. Start a new `HTML-to-text.py` file in Replit that modifies the `save-webpage` program. Our updated `save-webpage` program that calls `stripTags` as a module might look like this:
+45. Start a new `html-to-text.py` file in Replit that modifies the `save-webpage` program. Our updated `save-webpage` program that calls `stripTags` as a module might look like this:
 ```Python
-#HTML-to-text.py
-import urllib, urllib.request, stripTags
+#html-to-text.py
+import urllib, urllib.request, urllib.parse, urllib.error, stripTags
 
 url = 'https://en.wikisource.org/wiki/John_F._Kennedy%27s_Third_State_of_the_Union_Address'
 
 response = urllib.request.urlopen(url)
-HTML = response.read()
+html = response.read()
 
-print((stripTags.stripTags(HTML)))
+print(stripTags.stripTags(html))
 ```
 
-46. Running `HTML-to-text.py` goes through the following steps:
+46. Running `html-to-text.py` goes through the following steps:
   * gets the web page for the Wikisource URL
   * looks in the `stripTags.py` module for the `stripTags` function
   * uses that function to remove the `<div></div>` tag content AS WELL AS the `<p></p>` tags that remain in the content text
@@ -322,9 +323,9 @@ print((stripTags.stripTags(HTML)))
 
   * The `stripTags` function in `stripTags.py` needs one thing: a string called `pageContents`. But you’ll notice that when we call `stripTags` in the final program (`HTML-to-text.py`), there’s no mention of `pageContents`. 
 
-  * Instead, the function is given `HTML` as an argument. This is confusing. Once a function has been declared, we no longer need to use the same variable name when we call the function. As long as we provide the right type of argument, everything should work fine, no matter what we call it. 
+  * Instead, the function is given `html` as an argument. This is confusing. Once a function has been declared, we no longer need to use the same variable name when we call the function. As long as we provide the right type of argument, everything should work fine, no matter what we call it. 
 
-  * In this case we want `pageContents` to use the contents of our `HTML` variable. 
+  * In this case we want `pageContents` to use the contents of our `html` variable. 
 
 <blockquote>Q12: Describe how code reuse and modularity works in your own words. How would you explain what is happening when Python calls as module from another program?</blockquote>
 
@@ -354,19 +355,19 @@ f.close
 
 54. A sample program for that conversion:
 ```Python
-#html-to-list1.py
-import urllib, stripTags
+#html-to-list.py
+import urllib, urllib.request, stripTags
 
 url = 'https://en.wikisource.org/wiki/John_F._Kennedy%27s_Third_State_of_the_Union_Address'
 
-response = urllib.urlopen(url)
+response = urllib.request.urlopen(url)
 html = response.read()
 text = stripTags.stripTags(html)
 wordlist = text.split()
 
 print((wordlist[0:120]))
 ```
-<blockquote>Q14: Explain what is happening in <code>html-to-list1.py</code> in your own words.</blockquote>
+<blockquote>Q14: Explain what is happening in <code>html-to-list.py</code> in your own words.</blockquote>
 
 <blockquote>Q15: What is the output when you execute <code>html-to-list1.py</code>?</blockquote>
 
