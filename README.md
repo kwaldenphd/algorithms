@@ -136,7 +136,7 @@ f.close
 
 ## Explore the HTML & Identify Patterns
 
-17. Open your `.HTML` file and scroll through the source code.
+17. Open your `.html` file and scroll through the source code.
 
 <blockquote>Q6: What kinds of HTML markup do you see in the file? Where is the markup located in relation to the content text?</blockquote>
 
@@ -228,7 +228,7 @@ def stripTags(pageContents):
 ```
 ### `continue` and `return`
 
-31. There are two new Python concepts in this program: `continue` and `return`
+31. The modified `stripTags` routine includes Python concepts `continue` and `return`.
 
 32. The Python `continue` statement tells the interpreter to jump back to the top of the enclosing loop. 
 
@@ -418,7 +418,7 @@ A few projects that do this with speeches given by U.S. presidents:
 
 # Lab Notebook Questions
 
-In addition to the lab notebook questions, include final versions of the following `.py` files. 
+In addition to the lab notebook questions, include final versions of the following `.py` files. Submit as a `.zip` on Sakai.
 - `save-webpage.py`
 - `stripTags.py`
 - `HTML-to-text.py`
@@ -448,8 +448,8 @@ Q11: Explain what the `stripTags` routine is doing in your own words. What alter
 
 Q12: Describe how code reuse and modularity works in your own words. How would you explain what is happening when Python calls as module from another program?
 
-Q13: How would you change the end of `HTML-to-text.py` to save the output as a `.txt` file?
+Q13: How would you change the end of `html-to-text.py` to save the output as a `.txt` file?
 
-Q14: Explain what is happening in `html-to-list1.py` in your own words.
+Q14: Explain what is happening in `html-to-list.py` in your own words.
 
-Q15: What is the output when you execute `html-to-list1.py`?
+Q15: What is the output when you execute `html-to-list.py`?
