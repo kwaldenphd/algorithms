@@ -153,7 +153,7 @@ f.close
 20. For example, when looking at the HTML for President Kennedy's third inaugural address, I notice that `<div></div>` tags are used for metadata or menu items, and `<p></p>` tags surround the content text. I also notice that `<div></div>` tags are used for content that comes before and after the content text.
 
 21. I might want to build an algorithm that works through the following steps:
-  * downloads the web page as an `.HTML` file
+  * downloads the web page as an `.html` file
   * searches the HTML for the first `<p>` tag
   * stores the location of the first `<p>` tag
   * searches the HTML for the first `<div>` tag after the speech text content
@@ -228,7 +228,7 @@ def stripTags(pageContents):
 ```
 ### `continue` and `return`
 
-31. The modified `stripTags` routine includes Python concepts `continue` and `return`.
+31. The modified `stripTags` routine includes `continue` and `return`.
 
 32. The Python `continue` statement tells the interpreter to jump back to the top of the enclosing loop. 
 
@@ -298,7 +298,7 @@ def stripTags(pageContents):
 
 44. We can think of the entire `stripTags` routine as its own program. 
 
-45. Start a new `html-to-text.py` file in Replit that modifies the `save-webpage` program. Our updated `save-webpage` program that calls `stripTags` as a module might look like this:
+45. Start a new `html-to-text.py` file in Replit that modifies the `save-webpage` program. Our updated program that calls `stripTags` as a module might look like this:
 ```Python
 #html-to-text.py
 import urllib, urllib.request, urllib.parse, urllib.error, stripTags
@@ -345,7 +345,7 @@ f = open('Kennedy_Third_SOTU.html', 'w')
 f.write(webContent)
 f.close
 ```
-<blockquote>Q13: How would you change the end of <code>HTML-to-text.py</code> to save the output as a <code>.txt</code> file?</blockquote>
+<blockquote>Q13: How would you change the end of <code>html-to-text.py</code> to save the output as a <code>.txt</code> file?</blockquote>
 
 ### Creating a list of words
 
@@ -421,8 +421,8 @@ A few projects that do this with speeches given by U.S. presidents:
 In addition to the lab notebook questions, include final versions of the following `.py` files. Submit as a `.zip` on Sakai.
 - `save-webpage.py`
 - `stripTags.py`
-- `HTML-to-text.py`
-- `HTML-to-list.py`
+- `html-to-text.py`
+- `html-to-list.py`
 
 Q1: What pattern do you see emerging in these URLs? Use this pattern to predict the URL for a specific speech.
 
