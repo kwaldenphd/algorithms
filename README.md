@@ -80,16 +80,16 @@ import urllib.request
 url = 'https://en.wikisource.org/wiki/John_F._Kennedy%27s_Third_State_of_the_Union_Address'
 
 response = urllib.request.urlopen(url)
-webContent = response.read()
+pageContents = response.read()
 
-print(webContent[0:300])
+print(pageContents[0:300])
 ```
 
 <blockquote>Q3: Based on our previous work with Python, what do you think is happening in these lines of code?</blockquote>
  
 8. A few things happen with this code:
   * it opens the speech URL
-  * it reads the contents of the URL into the `webContent` string
+  * it reads the contents of the URL into the `pageContent` string
   * it prints the first 300 characters of the string
 
 9. `url`, `response`, and `pageContents` are all variables named in this code.
