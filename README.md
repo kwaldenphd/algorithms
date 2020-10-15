@@ -366,9 +366,9 @@ url = 'https://en.wikisource.org/wiki/John_F._Kennedy%27s_Third_State_of_the_Uni
 response = urllib.request.urlopen(url)
 html = response.read()
 text = stripTags.stripTags(html)
-wordlist = text.split()
+wordList = text.split()
 
-print((wordlist[0:120]))
+print((wordList[0:120]))
 ```
 <blockquote>Q14: Explain what is happening in <code>html-to-list.py</code> in your own words.</blockquote>
 
