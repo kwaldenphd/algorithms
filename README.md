@@ -330,7 +330,7 @@ print(stripTags.stripTags(html))
 
   * In this case we want `pageContents` to use the contents of our `html` variable. 
 
-<blockquote>Q12: Describe how code reuse and modularity works in your own words. How would you explain what is happening when Python calls as module from another program?</blockquote>
+<blockquote>Q12: Describe how code reuse and modularity works in your own words. How would you explain what is happening when Python calls a module from another program?</blockquote>
 
 ## Next steps
 
