@@ -65,7 +65,7 @@ This lab is based on and uses content from the following Programming Historian t
 
 6. Start a new Python `.py` file in Replit and name it `open-webpage.py`.
 
-<blockquote>NOTE: You will need to have three panels going on in your Replit (or other IDE) as you move through this lab. We will be writing programs in multiple files, so in Replit, you'll need to be able to run programs using the terminal/command prompt. <a href="https://repl.it/talk/ask/How-to-open-terminal-in-Python/28045">More information on how to add a terminal window to your Replit environment.</a></blockquote>
+<blockquote>NOTE: You will need to have three panels going on in your Replit (or other IDE) as you move through this lab. We will be writing programs in multiple files, so in Replit, you'll need to be able to run programs using the terminal/command prompt. To open a shell, you can use the Control-Shift-P key combination OR click the question mark icon in the bottom left corner of the screen.</blockquote>
 
 7. Add the following lines to the blank file. 
 
